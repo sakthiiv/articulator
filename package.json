@@ -11,7 +11,9 @@
   "author": "Sakthivel Viswanathan",
   "dependencies": {
     "hapi": "^14.1.0",
-    "inert": "^4.0.1"
+    "inert": "^4.0.1",
+    "node-fetch": "^1.6.0",
+    "node-uuid": "^1.4.7"
   },
   "engines": {
     "node": ">=4.0.0"

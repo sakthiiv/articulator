@@ -1,4 +1,23 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>Articulator</title>
-<script href="js/recognition.js"></script>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script src="js/recognition.js"></script>
+<script src="js/jquery-3.1.0.js"></script>
+<textarea id="txtConverse"></textarea>
+<input id="btnConverse" value="Let's chat" type="button" />
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$('#btnConverse').on('click', function(e) {
+			$.ajax({
+				url: 'http://localhost:3000/converse',
+				method: 'GET',
+				data: { message: $('#txtConverse').val() }
+			}).done(function(msg) {
+
+			});
+		})
+
+	});
+</script>
