@@ -1,0 +1,19 @@
+{
+  "name": "articulator",
+  "version": "1.0.0",
+  "description": "A chat bot with voice based input",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/sakthiiv/articulator",
+  "author": "Sakthivel Viswanathan",
+  "dependencies": {
+    "hapi": "^14.1.0",
+    "inert": "^4.0.1"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}
