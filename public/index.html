@@ -2,16 +2,36 @@
 <meta charset="utf-8">
 <title>Articulator</title>
 <link rel="stylesheet" type="text/css" href="css/index.css">
-<script src="js/recognition.js"></script>
 <script src="js/jquery-3.1.0.js"></script>
-<textarea id="txtConverse"></textarea>
-<input id="btnConverse" value="Let's chat" type="button" />
+<script src="js/recognition.js"></script>
+
+<!--<textarea id="txtConverse"></textarea>
+<input id="btnConverse" value="Let's chat" type="button" />-->
+
+<input id="btn_start" value="Lets hear" type="button" />
+
+<div id="results">
+  <span id="final_span" class="final"></span>
+  <span id="interim_span" class="interim"></span>
+  <p>
+</div>
+
+<ul class="pages">
+	<li class="chat page">
+	  <div class="chatArea">
+	    <ul class="messages"></ul>
+	  </div>
+	  <input class="inputMessage" placeholder="Speak after pressing mic .."/>
+	</li>
+</ul>
+
+
 <script type="text/javascript">
 	$(document).ready(function() {
 
 		$('#btnConverse').on('click', function(e) {
 			$.ajax({
-				url: 'http://localhost:3000/converse',
+				url: 'http://dev88.plaxo.com:3000/converse',
 				method: 'GET',
 				data: { message: $('#txtConverse').val() }
 			}).done(function(msg) {

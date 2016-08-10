@@ -25,7 +25,6 @@ server.route( {
   method: 'GET',
   path: '/converse',
   handler: function (request, reply) {
-    client.interactive(request.query.message);
-    return reply('Hello World!');
+    client.interact({request, reply}, request.query.message);    
   }
 });
