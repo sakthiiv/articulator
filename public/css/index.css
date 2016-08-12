@@ -5,7 +5,7 @@
 html {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
-  background-color: #fff;
+  background-color: #06001B;
 }
 
 html, input {
@@ -52,23 +52,39 @@ textarea {
 }
 
 
-.inputMessage {
+.inputMessage {  
   border: 10px solid #06001B;
   bottom: 0;
-  height: 60px;
-  left: 0;
-  outline: none;
+  height: 60px;  
+  outline: none;  
+  /*position: absolute;
   padding-left: 10px;
-  position: absolute;
   right: 0;
+  left: 0;*/
   width: 100%;
-  font-size: 100%;
+  font-size: 100%;  
 }
 
 .final {
-  color: black;
+  color: #fff;
   padding-right: 3px; 
 }
 .interim {
   color: gray;
+}
+
+#btn_start {
+  /*
+  border: 0;
+  background-color:transparent;
+  padding: 0;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  position: absolute;
+  */
+}
+
+#img_start {
+  width: 55px;
 }
