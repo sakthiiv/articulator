@@ -8,33 +8,50 @@
 </head>
 <body>
 <!--<textarea id="txtConverse"></textarea>
-<input id="btnConverse" value="Let's chat" type="button" />-->	
-<div class="container">
-	<ul class="pages">
+<input id="btnConverse" value="Let's chat" type="button" />-->
+<div class="container-fluid chat-container">
+	<div class="row">
+	</div>
+	<!--<ul class="pages">
 		<li class="chat page">
 			<div id="results">
 				<span id="final_span" class="final">This is a test</span>
 				<span id="interim_span" class="interim">This is a test</span>
-				<p>
 			</div>			
 			<div class="chatArea">
 				<ul class="messages"></ul>
 			</div>
 		</li>
-	</ul>
+	</ul>-->
 </div>
-<footer>
-	<div class="container">
-	  <div class="row">
-	  	<div class="col-md-10"><input class="inputMessage" placeholder="Speak after pressing mic .."/></div>
-	  	<div class="col-md-2">
-		  <button id="btn_start" value="Lets hear">
+<div class="container-fluid">
+  <div class="row">
+  	<div class="col-md-2">
+  		<div class="center">
+		  <button id="btn_start">
 		  	<img id="img_start" src="images/mic.png" alt="Start">
-		  </button>		  		
-	  	</div>
-	  </div>			
-	</div>
-</footer>
+		  </button>
+  		</div>		  		
+  	</div>
+  	<div class="col-md-10">
+  		<!--<input class="inputMessage" placeholder="Speak after pressing mic .."/>-->
+  		<div class="container-fluid">
+  			<div class="row">
+  				<div class="col-md-12">
+			  		<div class="inputMessage left">
+			  			<div class="left">
+			  				<span id="final_span" class="final"></span>
+							<span id="interim_span" class="interim"></span>			  				
+			  			</div>
+			  			<div class="right"><input id="btn_send" class="icon" type="image" src="images/tick_blue.png" alt="Send"></div>
+			  			<div class="right"><input id="btn_clear" class="icon" type="image" src="images/close_red.png" alt="Clear"></div>
+			  		</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>			
+</div>
 <script src="js/lib/jquery-3.1.0.js"></script>
 <script src="js/lib/bootstrap.min.js"></script>
 <script src="js/recognition.js"></script>

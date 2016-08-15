@@ -53,7 +53,7 @@ textarea {
 
 
 .inputMessage {  
-  border: 10px solid #06001B;
+  border: 8px solid #06001B;
   bottom: 0;
   height: 60px;  
   outline: none;  
@@ -66,7 +66,7 @@ textarea {
 }
 
 .final {
-  color: #fff;
+  color: #000;
   padding-right: 3px; 
 }
 .interim {
@@ -87,4 +87,25 @@ textarea {
 
 #img_start {
   width: 55px;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.chat-container {
+  height: 80%;
+  width: 100%;
+}
+
+.icon {
+  width: 44px;
 }

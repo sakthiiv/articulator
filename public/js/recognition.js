@@ -98,4 +98,13 @@ $(document).ready(function() {
 	  //showButtons('none');
 	  start_timestamp = event.timeStamp;
 	});
+
+	$('#btn_send').on('click', function(e) {
+		alert(final_span.innerHTML);
+	});
+
+	$('#btn_clear').on('click', function(e) {
+	  final_span.innerHTML = '';
+	  interim_span.innerHTML = '';
+	});	
 });
