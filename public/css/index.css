@@ -109,3 +109,24 @@ textarea {
 .icon {
   width: 44px;
 }
+
+ul.messages {
+  padding: 0;
+}
+
+div.messageBot, div.messageUser {
+  border-radius: 15px;
+  padding: 12px;
+  margin: 15px;  
+  width: 65%;
+}
+
+div.messageBot {
+  background-color: #E5E5EB;
+  color: #000;
+}
+
+div.messageUser {
+  background-color: #0B84FE;
+  color: #fff;
+}
