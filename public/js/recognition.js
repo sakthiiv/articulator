@@ -81,6 +81,9 @@ $(document).ready(function() {
 
 	var $inputMessage = $('.inputMessage');
 	var $chatPage = $('.chat.page');
+	var $messages = $('.messages');
+	var context = {};
+	var session = '';
 
 	$('#btn_start').on('click', function(e) {
 	  if (recognizing) {
@@ -100,11 +103,74 @@ $(document).ready(function() {
 	});
 
 	$('#btn_send').on('click', function(e) {
-		alert(final_span.innerHTML);
+
+		var userInput = $('#txtInput').val();
+
+		if (!userInput.length) 
+			return;
+
+		/*if (!final_span.innerHTML.length) 
+			return;*/
+
+		addChatMessage(userInput);
+
+		$.ajax({
+			url: 'http://localhost:3000/converse',
+			method: 'POST',
+			data: { message: userInput, context: JSON.stringify(context), session: session }
+		}).done(function(data) {
+			context = data.context;
+			session = data.session;
+			addChatMessage(data.text, {isBot: true});
+		});
 	});
 
 	$('#btn_clear').on('click', function(e) {
 	  final_span.innerHTML = '';
 	  interim_span.innerHTML = '';
-	});	
+	});
+
+	//addChatMessage();
+
+	function addChatMessage (data, options) {
+		if (!options) {
+		  options = {};
+		}
+
+		var $messageBodyDiv = $('<div class="' + (options.isBot ? 'messageBot left' : 'messageUser right')+ '">')
+		  .text(data);
+
+		var $messageDiv = $('<li class="message"/>')
+		  .append($messageBodyDiv);
+
+		addMessageElement($messageDiv, options);
+	}
+
+	function addMessageElement (el, options) {
+		var $el = $(el);
+
+		// Setup default options
+		if (!options) {
+		  options = {};
+		}
+		if (typeof options.fade === 'undefined') {
+		  options.fade = true;
+		}
+		if (typeof options.prepend === 'undefined') {
+		  options.prepend = false;
+		}
+
+		// Apply options
+		if (options.fade) {
+		  $el.hide().fadeIn(3000);
+		}
+		if (options.prepend) {
+		  $messages.prepend($el);
+		} else {
+		  $messages.append($el);
+		}
+		$messages[0].scrollTop = $messages[0].scrollHeight;
+	}
+
+
 });
