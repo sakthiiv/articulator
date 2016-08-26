@@ -2,65 +2,42 @@
 <html>
 <head>
 	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
 	<title>Articulator</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css">
 </head>
 <body>
-<!--<textarea id="txtConverse"></textarea>
-<input id="btnConverse" value="Let's chat" type="button" />-->
+<div class="empty-container"></div>
 <div class="container-fluid chat-container">
 	<div class="row">
 		<div class="col-md-12">
 	      <div class="chatArea">
 	        <ul class="messages">
-				<!--<li class="message">
-					<div class="messageBot left">This is a test message !! This is a test message !! This is a test message !! This is a test message !! This is a test message !! This is a test message !! This is a test message !! This is a test message !!</div>
-				</li>
-				<li class="message">
-					<div class="messageUser right">This is a test message !!</div>
-				</li>-->
 	        </ul>
 	      </div>
 		</div>
 	</div>
-	<!--<ul class="pages">
-		<li class="chat page">
-			<div id="results">
-				<span id="final_span" class="final">This is a test</span>
-				<span id="interim_span" class="interim">This is a test</span>
-			</div>			
-			<div class="chatArea">
-				<ul class="messages"></ul>
-			</div>
-		</li>
-	</ul>-->
 </div>
 <div class="container-fluid">
   <div class="row">
   	<div class="col-md-2">
-  		<div class="center">
+  		<div class="center mic-container">
 		  <button id="btn_start">
 		  	<img id="img_start" src="images/mic.png" alt="Start">
 		  </button>
   		</div>		  		
   	</div>
   	<div class="col-md-10">
-  		<!--<input class="inputMessage" placeholder="Speak after pressing mic .."/>-->
-  		<div class="container-fluid">
-  			<div class="row">
-  				<div class="col-md-12">
-			  		<div class="inputMessage left">
-			  			<div class="left">
-			  				<!--<span id="final_span" class="final"></span>
-							<span id="interim_span" class="interim"></span>-->
-							<input id="txtInput" class="inputMessage" placeholder="Speak after pressing mic .."/>
-			  			</div>
-			  			<div class="right"><input id="btn_send" class="icon" type="image" src="images/tick_blue.png" alt="Send"></div>
-			  			<div class="right"><input id="btn_clear" class="icon" type="image" src="images/close_red.png" alt="Clear"></div>
-			  		</div>
-  				</div>
+  		<div class="input-container left">
+  			<div class="left">
+  				<span id="final_span" class="final"></span>
+				<span id="interim_span" class="interim"></span>
+				<!--<input id="txtInput" class="inputMessage" placeholder="Speak after pressing mic .."/>-->
   			</div>
+  			<div class="right"><input id="btn_send" class="icon" type="image" src="images/tick_blue.png" alt="Send"></div>
+  			<div class="right"><input id="btn_clear" class="icon" type="image" src="images/close_red.png" alt="Clear"></div>
   		</div>
   	</div>
   </div>			
@@ -68,20 +45,5 @@
 <script src="js/lib/jquery-3.1.0.js"></script>
 <script src="js/lib/bootstrap.min.js"></script>
 <script src="js/recognition.js"></script>
-<script type="text/javascript">
-	/*$(document).ready(function() {
-
-		$('#btnConverse').on('click', function(e) {
-			$.ajax({
-				url: 'http://dev88.plaxo.com:3000/converse',
-				method: 'GET',
-				data: { message: $('#txtConverse').val() }
-			}).done(function(msg) {
-
-			});
-		})
-
-	});*/
-</script>	
 </body>
 </html>
