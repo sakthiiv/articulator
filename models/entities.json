@@ -1,0 +1,7 @@
+{
+  "types" : {
+    "movies": ["Mad Max", "Star Wars", "The Hateful Eight", "Ratatouille", "Ted", "Silicon Valley", "Avengers"],
+    "series": ["Mr Robot", "Game of thrones", "Cyber War", "Vice", "Dateline", "Preacher", "Fear the Walking Dead"],
+    "events": ["Get ready for Rio", "Athlete Profiles", "Primetime", "Best of London", "Get to know Rio", "Test yourself", "Behind the scenes"]
+  }
+}
