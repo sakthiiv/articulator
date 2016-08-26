@@ -103,25 +103,20 @@ $(document).ready(function() {
 	});
 
 	$('#btn_send').on('click', function(e) {
-
 		var userInput = $('#txtInput').val();
-
 		if (!userInput.length) 
 			return;
-
-		/*if (!final_span.innerHTML.length) 
-			return;*/
-
 		addChatMessage(userInput);
 
 		$.ajax({
-			url: 'http://localhost:3000/converse',
+			url: 'http://dev88.plaxo.com:3000/converse',
 			method: 'POST',
 			data: { message: userInput, context: JSON.stringify(context), session: session }
 		}).done(function(data) {
 			context = data.context;
 			session = data.session;
-			addChatMessage(data.text, {isBot: true});
+			var chatMsg = getIntent(context, data.text); 
+			addChatMessage(chatMsg, {isBot: true});
 		});
 	});
 
@@ -136,19 +131,15 @@ $(document).ready(function() {
 		if (!options) {
 		  options = {};
 		}
-
 		var $messageBodyDiv = $('<div class="' + (options.isBot ? 'messageBot left' : 'messageUser right')+ '">')
-		  .text(data);
-
+		  .html(data);
 		var $messageDiv = $('<li class="message"/>')
 		  .append($messageBodyDiv);
-
 		addMessageElement($messageDiv, options);
 	}
 
 	function addMessageElement (el, options) {
 		var $el = $(el);
-
 		// Setup default options
 		if (!options) {
 		  options = {};
@@ -159,17 +150,24 @@ $(document).ready(function() {
 		if (typeof options.prepend === 'undefined') {
 		  options.prepend = false;
 		}
-
 		// Apply options
 		if (options.fade) {
 		  $el.hide().fadeIn(3000);
 		}
-		if (options.prepend) {
-		  $messages.prepend($el);
-		} else {
-		  $messages.append($el);
-		}
+		options.prepend ? $messages.prepend($el) : $messages.append($el);
 		$messages[0].scrollTop = $messages[0].scrollHeight;
+	}
+
+	function getIntent (context, msg) {
+		var intentArr = context.intent, intent, finalMsg = '';
+		if (intentArr && intentArr.length) {
+			intent = intentArr[0].value;
+		}
+		if (intent && context.hasOwnProperty(intent)) {
+			finalMsg = context[intent];
+			return msg + '<br />' + finalMsg;
+		}
+		return msg;
 	}
 
 

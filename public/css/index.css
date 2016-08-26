@@ -21,28 +21,16 @@ html, input {
 
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 0;  
+}
+
+body {
+  padding: 0 10%;
 }
 
 ul {
   list-style: none;
   word-wrap: break-word;
-}
-
-/* Pages */
-
-.pages {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-.page {
-  height: 100%;
-  position: absolute;
-  width: 100%;
 }
 
 textarea {
@@ -51,11 +39,8 @@ textarea {
     width: 285px;
 }
 
-
-.inputMessage {  
-  border: 8px solid #06001B;
-  bottom: 0;
-  height: 60px;  
+.input-container {
+  border: 1px solid #ccc;
   outline: none;  
   /*position: absolute;
   padding-left: 10px;
@@ -73,7 +58,12 @@ textarea {
   color: gray;
 }
 
+div.mic-container {
+  padding: 10px;
+}
+
 #btn_start {
+  padding: 5px;
   /*
   border: 0;
   background-color:transparent;
@@ -101,11 +91,6 @@ textarea {
   float: right;
 }
 
-.chat-container {
-  height: 80%;
-  width: 100%;
-}
-
 .icon {
   width: 44px;
 }
@@ -129,4 +114,29 @@ div.messageBot {
 div.messageUser {
   background-color: #0B84FE;
   color: #fff;
+}
+
+div.empty-container {
+  width: 49%;
+  height: 80%;
+  float: left;  
+}
+
+div.chat-container {
+  width: 49%;
+  height: 80%;
+  float: left;
+  overflow: auto;
+}
+
+@media (max-width: 768px) {
+  div.empty-container {
+    display: none;
+  }
+  div.chat-container {
+    width: 100%;
+  }
+  body {
+    padding: 0;
+  }  
 }
