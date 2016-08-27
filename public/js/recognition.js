@@ -84,6 +84,7 @@ $(document).ready(function() {
 	var $messages = $('.messages');
 	var context = {};
 	var session = '';
+	var converseUrl = 'https://articulator.herokuapp.com/converse';
 
 	$('#btn_start').on('click', function(e) {
 	  if (recognizing) {
@@ -103,13 +104,13 @@ $(document).ready(function() {
 	});
 
 	$('#btn_send').on('click', function(e) {
-		var userInput = $('#txtInput').val();
+		var userInput = $('#final_span').text();
 		if (!userInput.length) 
 			return;
 		addChatMessage(userInput);
 
 		$.ajax({
-			url: 'http://dev88.plaxo.com:3000/converse',
+			url: converseUrl,
 			method: 'POST',
 			data: { message: userInput, context: JSON.stringify(context), session: session }
 		}).done(function(data) {
