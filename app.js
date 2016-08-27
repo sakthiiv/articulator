@@ -6,9 +6,10 @@ const hapi = require('hapi');
 const client = require('./lib/handler.js');
 
 const server = new hapi.Server();
+const port = Number(process.env.PORT || 3000)
 
 server.register(inert, function (err) {
-  server.connection({ port: 3000 });
+  server.connection({ port: port });
   server.route( {
     method: 'GET',
     path: '/{param*}',
