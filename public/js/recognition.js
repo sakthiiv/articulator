@@ -60,7 +60,7 @@ $(document).ready(function() {
 		recognition.onresult = function(event) {
 			var interim_transcript = '';
 			final_transcript = '';
-			//if (event.resultIndex > 0) return;
+			if (event.resultIndex > 0) return;
 
 			for (var i = event.resultIndex; i < event.results.length; ++i) {
 			  if (event.results[i].isFinal) {
@@ -75,6 +75,10 @@ $(document).ready(function() {
 			final_span.innerHTML = linebreak(final_transcript);
 			interim_span.innerHTML = linebreak(interim_transcript);
 			chatProcess();
+		    if (recognizing) {
+		      recognition.stop();
+		      return;
+		    }
 		};
 
 		var first_char = /\S/;
@@ -110,7 +114,7 @@ $(document).ready(function() {
 	});
 
 	$('#btn_clear').on('click', function(e) {
-      	  final_transcript = '';
+      final_transcript = '';
 	  final_span.innerHTML = '';
 	  interim_span.innerHTML = '';
 	});
@@ -159,7 +163,7 @@ $(document).ready(function() {
 		}
 		// Apply options
 		if (options.fade) {
-		  $el.hide().fadeIn(3000);
+		  $el.hide().fadeIn(1000);
 		}
 		options.prepend ? $messages.prepend($el) : $messages.append($el);
 		$messages[0].scrollTop = $messages[0].scrollHeight;
