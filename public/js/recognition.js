@@ -106,17 +106,17 @@ $(document).ready(function() {
 	});
 
 	$('#btn_send').on('click', function(e) {
-
+		//chatProcess($('#txtInput').val());
 	});
 
 	$('#btn_clear').on('click', function(e) {
-      final_transcript = '';
+      	  final_transcript = '';
 	  final_span.innerHTML = '';
 	  interim_span.innerHTML = '';
 	});
 
-	function chatProcess () {
-		var userInput = $('#final_span').text();
+	function chatProcess (msg) {
+		var userInput = msg || $('#final_span').text();
 		if (!userInput.length) 
 			return;
 		addChatMessage(userInput);
